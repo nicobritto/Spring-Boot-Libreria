@@ -1,0 +1,36 @@
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        
+         <table>
+            <thead>
+                <tr>
+                    <th>id del Libro</th>
+                    <th> titulo</th>
+                    <th> ejemplares  </th>
+                    <th> autor</th>
+                    <th> editorial</th>
+                </tr>
+            </thead>
+            <tbody th:each="libro : ${todoslosLibro}">
+                <tr>
+                    <th scope="row" th:text="${libro.isbn}"></th>
+                    <td th:text="${libro.titulo}"></td>
+                    <td th:text="${libro.ejeplares}"></td>
+                    <td th:text="${libro.autor.nombre}"></td>
+                    <td th:text="${libro.editorial.nombre}"></td>
+                    
+                </tr>
+
+            </tbody>
+
+        </table>
+        
+        
+    </body>
+</html>

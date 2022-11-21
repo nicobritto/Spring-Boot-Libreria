@@ -1,0 +1,34 @@
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>id del autor</th>
+                    <th> nombre del autor</th>
+                    <th> Acciones</th>
+                </tr>
+            </thead>
+            <tbody th:each="autor : ${todosAutores}">
+                <tr>
+                    <th scope="row" th:text="${autor.id}"></th>
+                    <td th:text="${autor.nombre}"></td>
+                    <td>
+                        <a th:href="@{/autor/modificar/__${autor.id}__}">modificar</a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+
+    </body>
+</html>

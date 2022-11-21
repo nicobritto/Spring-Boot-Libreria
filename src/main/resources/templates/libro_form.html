@@ -1,0 +1,65 @@
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+        <div class="container">
+            <form action="/libro/registro" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form.group" name="isbn" placeholder="isbn">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form.group" name="titulo" placeholder="titulo ">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form.group" name="ejemplares" placeholder="ejemplares">
+                </div>
+                <div >
+                    <select name="idAutor">
+                        <option>Seleccionar autor</option>
+                        <option th:each="autor : ${autores}"
+                                th:value="${autor.id}"
+                                th:text="${autor.nombre}"/></option>
+                    </select>
+                </div>
+                <div>
+                    <select name ="idEditorial"><!--ponemenos lo mismo que @PostMapping("registro") -->
+                        <option>Seleccionar editorial</option>
+                        <option  th:each="editorial : ${editoriales}"
+                                 th:value="${editorial.id}"
+                                 th:text="${editorial.nombre}"></option>
+                    </select>
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-primary">Subir</button>
+
+
+                <div th:if="${error != null}">
+                    <div >
+                        <h5>Errorrrrrrrrr</h5>
+                        <p th:text="${error}"></p>
+                    </div>
+                </div>
+
+                <div th:if="${exito != null}">
+                    <div>
+                        <h5>Exito amiguito se guardo el libro</h5>
+                        <p th:text="${exito}"></p>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+    </body>
+</html>
