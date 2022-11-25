@@ -100,4 +100,16 @@ public class LibroServicio {
         }
     }
 
+    public Libro buscarLibro(String isbn) throws MIException {
+        Optional<Libro> respuesta = libroRepositorio.findById(isbn);
+
+        if (respuesta.isPresent()) {
+            Libro libro = respuesta.get();
+            return libro;
+        } else {
+            throw new MIException("no se encontro el lubro");
+        }
+
+    }
+
 }

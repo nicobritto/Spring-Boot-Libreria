@@ -1,0 +1,29 @@
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        
+        
+       
+        <div>
+            <form th:action="@{/editorial/modificar/__${editorial.id}__}" method="POST">
+                
+                <!-- ----------inpuit ----oculto -->
+                <input hidden th:value="${id}" name="id">
+                
+                <div>
+                    <label>cargar editorial</label>
+                    <input th:value="${editorial.nombre}" type="text" name="nombre">
+                </div>
+                
+                <button type="submit">Actualizar</button>
+                
+            </form>
+        </div>
+        
+    </body>
+</html>

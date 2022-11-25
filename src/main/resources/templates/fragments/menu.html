@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg" style="background-color: #33688d;" th:fragment="menu">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/}">Biblioteca</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/autor/registrar}">Agregar Autor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/editorial/registrar}">Agregar Editorial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/libro/registrar}">Agregar Libro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/cliente/registrar}">Agregar Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/prestamo/registrar}">Agregar Prestamo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/autor/lista}">Lista de Autores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/editorial/lista}">Lista de Editoriales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/libro/lista}">Lista de Libros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/cliente/lista}">Lista de Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/prestamo/lista}">Lista de Prestamos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+    </body>
+</html>

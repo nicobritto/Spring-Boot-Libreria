@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,7 +48,6 @@ public class AutorControlador {
     public String listar(ModelMap modelo) {
         List<Autor> autores = autorServicio.listarAutores();
         modelo.addAttribute("todosAutores", autores);
-
         return "autor_list.html";
 
     }
@@ -55,9 +55,9 @@ public class AutorControlador {
     @GetMapping("/modificar/{id}")
     public String modificar(@PathVariable String id, ModelMap modelo) {
         modelo.put("autor", autorServicio.getOne(id));
-
+        
         return "autor_modificar.html";
-                
+
     }
 
     @PostMapping("/modificar/{id}")
@@ -72,6 +72,17 @@ public class AutorControlador {
             return "autor_modificar.html";
         }
 
+    }
+
+   @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable String id,ModelMap modelo) {
+        try {
+            autorServicio.eliminarAutor(id);
+             return "redirect:../lista";
+        } catch (MIException ex) {
+            Logger.getLogger(AutorControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return "redirect:../lista";
     }
 
 }

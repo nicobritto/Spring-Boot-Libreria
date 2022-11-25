@@ -9,10 +9,34 @@
                     <div>TODO write content</div>
 
                     <div class="container">
-                        <form action="/autor/registro" method="POST">
-                            <div class="form-group">
-                                <input type="text"   class="form-control"   name="nombre" placeholder="nombre autor">
+                        <form action="/prestamo/registro" method="POST">
+
+
+                            <div>
+                                <h5>fechaDevolucion</h5>
+                                <input type="date" class="form-select" name="fechaDevolucion">
                             </div>
+
+
+                            <div >
+                                <select class="form-select" name="libroIsbn">
+                                    <option>Seleccionar Libro</option>
+                                    <option th:each="libro : ${libroTodos}"
+                                            th:value="${libro.isbn}"
+                                            th:text="${libro.titulo}"/></option>
+                                </select>
+                            </div>
+                            <div>
+                                <select class="form-select" name="clienteId">
+                                    <option>Seleccionar Cliente</option>
+                                    <option th:each="cliente : ${clientesTodos}"
+                                            th:value="${cliente.id}"
+                                            th:text="${cliente.nombre}"/></option>
+                                </select>
+                            </div>
+
+
+
 
                             <button type="submit" class="btn btn-primary">Subir</button>
 

@@ -1,0 +1,37 @@
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>nombre Cliente</th>
+                    <th> apellido</th>
+                    <th> telefono</th>
+                    <th> dni </th>
+                </tr>
+            </thead>
+
+            <tbody th:each="cliente : ${clientesTodos}">
+                <tr>
+                    <th scope="row" th:text="${cliente.id}"></th>
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="${cliente.apellido}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td th:text="${cliente.documento}"></td>
+                    
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+
+
+    </body>
+</html>

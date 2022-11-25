@@ -34,6 +34,13 @@ public class AutorServicio {
 
     }
 
+    @Transactional
+    public void eliminarAutor(String id) throws MIException {
+       // Autor autor = autorRepositorio.findById(id).get();
+        autorRepositorio.deleteById(id);
+    }
+
+    @Transactional
     public void modificarAutor(String nombre, String id) throws MIException {
 
         Optional<Autor> respuesta = autorRepositorio.findById(id);

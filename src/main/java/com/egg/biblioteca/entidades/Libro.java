@@ -21,6 +21,7 @@ public class Libro {
     private Autor autor;
     @ManyToOne
     private Editorial editorial;
+    
 
     public Libro() {
     }
@@ -82,4 +83,14 @@ public class Libro {
         this.editorial = editorial;
     }
 
+    @Override
+    public String toString() {
+        return "Libro{" + "isbn=" + isbn + ", titulo=" + titulo + ", ejeplares=" + ejeplares + ", fechaAlta=" + fechaAlta + ", autor=" + autor + ", editorial=" + editorial + '}';
+    }
+    
+    
+    
+
+
+    
 }

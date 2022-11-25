@@ -1,6 +1,7 @@
 package com.egg.biblioteca.servicios;
 
 import com.egg.biblioteca.entidades.Editorial;
+import com.egg.biblioteca.excepsiones.MIException;
 import com.egg.biblioteca.repositorios.EditorialRepositorio;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,8 @@ public class EditorialServicio {
     EditorialRepositorio editorialRepositorio;
 
     @Transactional
-    public void CrearEditorial(String nombre) {
-
+    public void CrearEditorial(String nombre) throws MIException {
+        validar(nombre);
         Editorial editorial = new Editorial();
         editorial.setNombre(nombre);
         editorialRepositorio.save(editorial);
@@ -32,15 +33,32 @@ public class EditorialServicio {
 
     }
 
-    public void modificarEditorial(String id, String nombre) {
+    public void modificarEditorial(String id, String nombre) throws MIException {
         Optional<Editorial> respuesta = editorialRepositorio.findById(id);
         if (respuesta.isPresent()) {
             Editorial editorial = respuesta.get();
+            editorial.setNombre(nombre);
 
             editorialRepositorio.save(editorial);
         }
 
     }
-    
+
+    public void validar(String nombre) throws MIException {
+
+        if (nombre.trim().isEmpty() || nombre == null) {
+            throw new MIException("el nombre no puede ser nulo");
+        }
+    }
+
+    public Editorial getOne(String id) {
+        return editorialRepositorio.getOne(id);
+
+    }
+
+    public void eliminarEditorial(String id) throws MIException {
+        editorialRepositorio.deleteById(id);
+
+    }
 
 }

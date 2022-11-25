@@ -12,7 +12,8 @@
                 <tr>
                     <th>id del autor</th>
                     <th> nombre del autor</th>
-                    <th> Acciones</th>
+                    <th> Accione</th>
+                    <th> Accione</th>
                 </tr>
             </thead>
             <tbody th:each="autor : ${todosAutores}">
@@ -21,6 +22,9 @@
                     <td th:text="${autor.nombre}"></td>
                     <td>
                         <a th:href="@{/autor/modificar/__${autor.id}__}">modificar</a>
+                    </td>
+                    <td>
+                        <a th:href="@{/autor/eliminar/__${autor.id}__}" >eliminar</a>
                     </td>
                 </tr>
 
