@@ -1,0 +1,50 @@
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+        <form class="formulario" th:action="@{/perfil/__${usuario.id}__}" method="POST" enctype="multipart/form-data">
+          
+            <input hidden th:value="${id}" name="id">
+            <div>
+                <h3>Registrate</h3>
+            </div>    
+            <div>
+                <input type="text" name="nombre" placeholder="NOMBRE" th:value="${nombre}">
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="EMAIL" th:value="${email}">
+            </div>
+            
+            
+            <div>
+                <input type="file" name="archivo" placeholder="archivo" >
+            </div>
+            
+            
+            <div>
+                <input type="text" name="password" placeholder="password" th:value="${password}">
+            </div>
+            <div>
+                <input type="text" name="password2" placeholder="repetir password" th:value="${password2}">
+            </div>
+
+            <button type="submit" >actualizar</button>
+
+        </form>
+
+        <div th:if="${error != null}" class="text-white bg-success mb-3 mensajeError">
+            <div class="card-body">
+                <h5 class="card-title">Error!!!!</h5>
+                <p class="card-text" th:text="${error}"> </p>
+            </div>
+        </div>
+
+    </body>
+</html>

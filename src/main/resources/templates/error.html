@@ -11,7 +11,6 @@
 
                     <body>
 
-                        
                         <header>
                             <div th:replace="~{fragments/menu :: menu}">
 
@@ -19,15 +18,12 @@
                         </header>
                         <div>Tinder!!!!!!!!!!!!!!!!!!!!!!!!!!</div>
 
-                        <li class="container" >
-                            <p  th:if='${session.usuariosession !=null}' th:text=" 'hola de vuelta '+${session.usuariosession.nombre}" ></p>
-                        </li>
-
-
-
-                        <li class="container" >
-                            <img width="350" class="my-4" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}">
-                        </li>
+                        <div>
+                            <a th:text="'Error ' + ${codigo}">biblioteca </a>
+                            <p th:text="${mensaje}"></p>
+                        </div>
+                       
+                        
 
 
 

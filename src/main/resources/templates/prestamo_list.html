@@ -1,4 +1,6 @@
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org" 
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -18,7 +20,7 @@
                                 <th>alta</th>
                                 <th>libro</th>
                                 <th>cliente</th>
-                                <th>acciones</th>
+                                <th sec:authorize="hasRole('ADMIN')">acciones</th>
                             </tr>
                         </thead>
                         <tbody th:each="prestamo : ${prestamosTodos}">
@@ -31,7 +33,7 @@
                                 <th th:text="${prestamo.cliente.nombre}"> </th>
 
                                 <td>
-                                    <a th:href="@{/prestamo/modificar/__${prestamo.id}__}" >modificar</a>
+                                    <a sec:authorize='hasRole("ADMIN")' th:href="@{/prestamo/modificar/__${prestamo.id}__}" >modificar</a>
                                 </td>
                             </tr>
 
